@@ -1,0 +1,97 @@
+
+<!--
+    bs-class näkyy vain isommilla näytöillä, kuten tietokoneilla
+    ss-class näkyy vain pienillä, kuten puhelimilla
+    Molemmat classit voi kuitenkin olla näkyvillä bs- sekä mobiililaitteilla, jos näytönkoko on tarpeeksi pieni/suuri. 
+    Jotkut elementit vaatii backend-koodia, että ne voi piiloittaa/näyttää tietyillä laitteilla.
+    Mobiililaitteilla laita content-boksiin mobile-class, ettei sisältö leikkaudu.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    <title>QuickPDF - Etusivu</title>
+</head>
+    <body>
+        <header id="header">
+            <h1>QuickPDF</h1>
+            <span>
+                <input type="button" value="Etusivu">
+                <input type="button" value="Lisää PDF-tiedosto"> <!--vain opettajille!-->
+                <input type="button" value="Asetukset">
+            </span>
+        </header>
+        <div id="topbox">
+            <label for="sortby" class="bs">Lajittele: </label>
+            <select name="sortby">
+                <option value="newest">Uusin</option>
+                <option value="oldest">Vanhin</option>
+                <option value="newestfile">Uusin tiedosto</option>
+                <option value="oldestfile">Vanhin tiedosto</option>
+                <option value="favorited">Suosikit tiedostot</option>
+            </select>
+            <input class="disabled fr" type="image" name="searchmobile" src="images/search.png" alt="Etsi"> <!--Tämä voisi tuoda esiin prompt()-boksin?-->
+            <form class="fr" action=""> <!--Pitäisi näkyä vain tietokoneilla, tarvitsee backend-koodia-->
+                <input type="submit" value="Etsi"> 
+                <input type="search" placeholder="Tiedoston tai opettajan nimi"> 
+            </form>
+        </div>
+        <div id="content">
+
+            <!-- Esimerkki tiedostosta, tähdetön, ei luettu-->
+            <div class="fileshow">
+                <img class="fr" src="images/unread.png" alt="Lukematon/päivitetty">
+                <p class="bs fr grey">Lukematon</p> 
+                <h2>Tiedoston Nimi</h2> 
+                <h3>Opettajan Nimi</h3>
+                <p class="fr grey">Päivitysaika</p><!-- 
+                    Jos tänään, esim. klo 13.12, 
+                    jos eilen, esim. eilen 11.12, 
+                    jos samana vuona, esim. 12.11 klo 0.12, 
+                    jos eri vuonna, esim. 12.12.2012, jne.
+                    Sama formatointi kuuluu luontiajalle.
+                -->
+                <p class="bs fr grey">luotu Luontiaika ; päivitetty&#160</p>  
+                <h3 class="grey">Tilaajan Nimi</h3> <!--Tilaajaa välttämättä ei ole-->
+            </div>
+
+            <!-- Esimerkki tiedostosta, tähdetellinen, luettu-->
+            <div class="fileshow read">
+                <input type="image" class="ss fr" src="images/starred.png" alt="Suosikki"> <!--Suosikkien merkkaus voisi tehdä tiedoston avataessa.-->
+                <span class="click">
+                    <h2>Hieno suunnitteludokumentti</h2>
+                    <h3>Pekka Perä</h3>
+                    <p class="fr grey">19.12.2005</p>
+                    <p class="bs fr grey">luotu 1.1.2004 ; päivitetty&#160</p>  
+                    <h3 class="grey">Jarkon Pizzeria</h3>
+                </span>
+                <span class="bs button starb"><img src="images/starred.png">Poista suosikeista</span>
+            </div>
+        </div>
+        <!--Pitäisi näkyä vain mobiililaitteilla, vaatii backend-koodia-->
+        <footer class="disabled">
+            <span>
+                <img src="images/home.png">
+                <p>Koti</p>
+            </span>
+
+            <!--vain opettajille!-->
+            <span>
+                <img src="images/new.png" alt="Uusi PDF-tiedosto">
+                <p>Lisää</p>
+            </span>
+
+            <span>
+                <img src="images/menu.png">
+                <p>Menu</p>
+            </span>
+        </footer>
+    </body>
+</html>

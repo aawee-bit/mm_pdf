@@ -1,0 +1,262 @@
+* {
+    font-family: 'Kanit', sans-serif;
+    --header-height: 125px;
+    --footer-height: 75px;
+    --pdf-red: rgb(219, 20, 59);
+}
+
+body {
+    background-color: rgb(230,230,230);
+}
+
+/* Yleisiä elementtejä */
+
+.disabled { /*voit lisätä tämän elementtiin jos haluat sen näkömättömäksi */
+    visibility: hidden;
+    margin: 0px;
+    width: 0px;
+    height: 0px;
+    content: "";
+    font-size: 0px;
+
+}
+
+.fr {
+    float: right;
+}
+.fl {
+    float: left;
+}
+
+.grey {
+    color: grey;
+}
+
+input {
+    cursor: pointer;
+}
+
+/* Yläpalkki */
+header {
+    margin: auto;
+    position: fixed;
+    display: flex;
+    float: none;
+    z-index: 999;
+    width: 100%;
+    height: calc(var(--header-height) - 15px - 25px);
+    top: 0px;
+    left: 0px;
+    padding: 15px;
+    background-color: var(--pdf-red);
+    color: white;
+}
+
+header * {
+    margin: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+header h1 {
+    user-select: none;
+}
+
+header input[type=button] {
+    background-color: var(--pdf-red);
+    border-color: white;
+    border-radius: 10px;
+    height: 50%;
+    width: 10vw;
+    min-width: 15ch;
+    border-style: solid;
+    color: white;
+    font-size: large;
+    
+}
+
+header input[type=button]:active {
+    translate: 0 2px;
+    transition-duration: 50ms;
+}
+
+#content {
+    margin: auto;
+    position: relative;
+    top: calc(var(--header-height) + 35px);
+    left: 0px;
+    width: 100%;
+}
+#content.mobile {
+    padding-bottom: var(--footer-height); /*footeria varten*/
+}
+
+/* Haku/lajittelupalkki */
+#topbox {
+    position: fixed;
+    top: calc(var(--header-height) - 15px);
+    z-index: 999;
+    left: 0px;
+    background-color: white;
+    padding: 15px;
+    width: 100%;
+    height: 25px;
+    margin: auto;
+    font-size: larger;
+}
+
+#topbox input[type=image] {
+    position: relative;
+    top: -12.5px;
+    right: 25px;
+    width: auto;
+    height: 50px;
+}
+
+#topbox input[type=search] {
+    width: 22ch;
+    max-width: 20vw;
+}
+
+/*Alapalkki, mobiilille tarkoitettu*/
+
+footer {
+    margin: auto;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    z-index: 999;
+    width: 100%;
+    color: rgb(40,40,40);
+    height: var(--footer-height);
+    background-color: white;
+    bottom: 0px;
+    left: 0px;
+}
+
+footer span {
+    cursor: pointer;
+    margin-right: 10px;
+    margin-left: 10px;
+    font-size: smaller;
+    text-align: center;
+    max-width: 25%;
+    width: 45px;
+}
+
+footer img {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    margin: 0px;
+}
+
+footer p {
+    margin: 0px;
+}
+
+/*PDF-tiedostoboksi (tiedostonäyttö)*/
+
+.fileshow {
+    background-color: white;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.fileshow * {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    user-select: none;
+}
+
+.fileshow div {
+    cursor: pointer;
+}
+
+.fileshow h3 {
+    font-weight: normal;
+}
+
+.fileshow img, .fileshow input[type=image] {
+    display: inline;
+    position: relative;
+    top: -5px;
+    width: 35px;
+    height: 35px;
+    user-select: all;
+}
+
+.fileshow.read {
+    background-color: rgb(240,240,240);
+}
+
+.fileshow:hover {
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
+    transition-duration: 100ms;
+}
+
+.fileshow:active {
+    translate: 0px 1px;
+    background-color: rgb(255,255,255);
+    transition-duration: 100ms;
+}
+
+.fileshow h2, .fileshow h3 {
+    left: 55px;
+}
+
+.fileshow .button {
+    padding: 3px;
+    border-radius: 5px;
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+    cursor: pointer;
+    height: 30px;
+}
+
+.fileshow .button img {
+    display: inline;
+    position: relative;
+    top: 10px;
+    height: 20px;
+    margin-right: 1ch;
+    width: auto;
+}
+
+.fileshow .starb {
+    border-color: rgb(255,150,0);
+}
+
+/* Pieni näyttö */
+
+@media (max-width:1025px) {
+    .bs {
+        visibility: hidden;
+        margin: 0px;
+        width: 0px;
+        height: 0px;
+        content: "";
+        font-size: 0px;
+    }
+}
+
+/* Iso näyttö */
+
+@media (min-width:1025px) {
+    .ss {
+        visibility: hidden;
+        margin: 0px;
+        width: 0px;
+        height: 0px;
+        content: "";
+        font-size: 0px;
+    }
+}
